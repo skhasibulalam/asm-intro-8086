@@ -69,7 +69,7 @@ CHK: MOV AX,BX
      JE DONE
      JMP STA 
 DONE: RET
-      FUN ENDP
+FUN ENDP
 
 ORG 600H
 VAR1 DW 25; 1st input
