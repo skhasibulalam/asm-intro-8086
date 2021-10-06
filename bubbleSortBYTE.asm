@@ -25,6 +25,6 @@ BARAO: INC SI
        JMP CHK
 FIN: INT 3
 ORG 600H
-A1 DB 5,3,6,1; user inputs to be sorted
+A1 DB 5,3,6,1; user inputs (BYTE) to be sorted
 CODE ENDS
 END MAIN
