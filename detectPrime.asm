@@ -1,0 +1,28 @@
+CODE SEGMENT
+ASSUME CS:CODE,DS:CODE 
+ORG 100H
+MAIN: MOV AX,CS
+      MOV DS,AX
+      MOV AX,USER
+      CMP AX,1
+      JLE NO
+      MOV BX,AX
+PRIME: MOV DX,0
+       MOV AX,USER
+       DEC BX
+       CMP BX,1
+       JE YES
+       DIV BX
+       CMP DX,0
+       JNE PRIME
+       JMP NO
+YES: MOV AX,1
+     JMP FINISH
+NO: MOV AX,0
+
+FINISH: MOV AH,4CH
+INT 21H
+ORG 600H
+USER DW 199; find whether 199 is prime or not
+CODE ENDS
+END MAIN
