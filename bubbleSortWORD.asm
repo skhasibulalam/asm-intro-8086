@@ -1,0 +1,34 @@
+CODE SEGMENT
+ASSUME CS:CODE,DS:CODE
+ORG 100H
+MAIN: MOV AX,CS
+      MOV DS,AX
+      MOV AX,8
+      JMP START
+FLAX: SUB AX,2
+      CMP AX,2
+      JE FIN
+START: MOV SI,0
+       MOV DI,2
+CHK: MOV BL,A1[SI]
+     MOV BH,A1[SI]+1
+     MOV CL,A1[DI]
+     MOV CH,A1[DI]+1
+     CMP BX,CX
+     JG EXC
+     JMP BARAO
+EXC: XCHG BX,CX
+     MOV A1[SI],BL
+     MOV A1[SI]+1,BH
+     MOV A1[DI],CL
+     MOV A1[DI]+1,CH
+BARAO: ADD SI,2
+       ADD DI,2
+       CMP DI,AX
+       JE FLAX
+       JMP CHK
+FIN: INT 3
+ORG 600H
+A1 DW 5,3,6,1; user inputs (WORD) to be sorted
+CODE ENDS
+END MAIN
