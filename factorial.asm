@@ -1,18 +1,16 @@
 CODE SEGMENT
-ASSUME CS : CODE ., DS : CODE
+ASSUME CS: CODE, DS: CODE
 ORG 100H
-MAIN :  MOV AX, CS
-        MOV DS, AX
-        MOV AX, 1
-        MOV BX, 0
-        MOV DX, 0
-        MOV CX, 5
-
-KORO :  INC BX
-        MUL BX
-        CMP BX, CX
-        JNE KORO
-
+MAIN: MOV AX, CS
+      MOV DS, AX
+      MOV AX, 1
+      MOV BX, 0
+      MOV DX, 0
+      MOV CX, 5; find the factorial of 5
+KORO: INC BX
+      MUL BX
+      CMP BX, CX
+      JNE KORO
 MOV AH, 4CH
 INT 21H
 CODE ENDS
