@@ -11,7 +11,7 @@ BARAO: MOV DX,AX; 1 2 3 5 8 13 21 34 ...
        ADD AX,BX
        MOV BX,DX
        INC CX
-       CMP CX,8
+       CMP CX,8; find 8th Fibonacci term
        JNE BARAO
 MOV AH,4CH
 INT 21H
